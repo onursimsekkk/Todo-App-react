@@ -41,6 +41,10 @@ class App extends Component {
     }
   };
 
+  removeItem = () => {
+    
+  }
+
   onInputChange = (e) => {
     const newVal = e.target.value;
     this.setState({
