@@ -1,0 +1,10 @@
+.todoItem {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.finishedTask {
+  text-decoration: line-through;
+  text-decoration-color: #808080;
+}
