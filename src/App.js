@@ -21,7 +21,7 @@ class App extends Component {
     if (this.state.userInput !== "") {
       const userInput = {
         // Delete yaparken kullanılabilmesi için bir her item için random bir id
-        id: Math.random(),
+        id: Math.random(), 
         content: currentValue,
       };
 
@@ -41,8 +41,10 @@ class App extends Component {
     }
   };
 
-  removeItem = () => {
-    
+  removeItem = (e) => {
+    const remove = this.state.todos.filter(todo => todo.id !== e.target.value);
+    this.setState({todos: remove});
+    // filter kullanılabilir burası için -- id'sini filter edip remove yapılacak.
   }
 
   onInputChange = (e) => {
@@ -55,7 +57,7 @@ class App extends Component {
   render() {
     return (
       <div className="App">
-        <TodoHeader />
+        <TodoHeader name="TODO" />
         <Form
           userInput={this.state.userInput}
           onInputChange={this.onInputChange}
@@ -63,7 +65,7 @@ class App extends Component {
         />
         {this.state.todos.length > 0 && (
           <div className="list">
-            <TodoList todos={this.state.todos} />
+            <TodoList todos={this.state.todos} removeItem={this.removeItem} />
           </div>
         )}
       </div>
