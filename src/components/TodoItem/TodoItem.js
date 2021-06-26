@@ -5,12 +5,12 @@ import "./TodoItem.css";
 
 
 function TodoItem(props) {
-  const { content } = props;
+  const { content, id } = props;
   const [isFinish, setIsFinish] = useState(false);
 
-  const finisher = (e) => {
+  const finisher = () => {
     setIsFinish(!isFinish);
-    e.stopPropagation();
+    // console.log(this.key);
   }
 
   return (
@@ -20,7 +20,7 @@ function TodoItem(props) {
       <button onClick={finisher} className={ isFinish ? "btn btn-warning mr-1" : "btn btn-success mr-1" }>
        {isFinish ? "İptal" : "Bitti"}
       </button>
-      <button className="btn btn-danger">Sil</button> 
+      <button value={id} onClick={props.removeItem} className="btn btn-danger">Sil</button> 
     </div>
   </div>
   );
