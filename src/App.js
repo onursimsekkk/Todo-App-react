@@ -13,7 +13,7 @@ class App extends Component {
     };
   }
 
-  // Eğer input alanı boş değilse todos'a ekleye
+  // Add Task
   addItem = () => {
     // input'ta yazılı olan string değer
     const currentValue = this.state.userInput;
@@ -40,12 +40,11 @@ class App extends Component {
       );
     }
   };
-
+  // Remove Task
   removeItem = (e) => {
-    const remove = this.state.todos.filter(todo => todo.id !== e.target.value);
-    this.setState({todos: remove});
-    // filter kullanılabilir burası için -- id'sini filter edip remove yapılacak.
-  }
+    const removeArray = this.state.todos.filter(todo => todo.id != e.target.value);
+    this.setState({todos: removeArray}); 
+    }    
 
   onInputChange = (e) => {
     const newVal = e.target.value;
